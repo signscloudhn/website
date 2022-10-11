@@ -19,8 +19,7 @@ body {
 html {
   font-size: 62.5%;
 }
-#root {
-  height: 100vh;
+#app {
   overflow-x: hidden;
 }
 
@@ -54,7 +53,7 @@ li,
 input,
 label {
   font-size: 1.6rem;
-  color: $background-gray;
+  color: $dark-gray;
   font-family: "Montserrat-rg", sans-serif;
 }
 
@@ -65,7 +64,7 @@ h4,
 h5,
 h6 {
   font-family: "Torus Bold", sans-serif;
-  color: $background-gray;
+  color: $dark-gray;
   font-size: 24px;
 }
 

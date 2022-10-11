@@ -2,12 +2,15 @@ import logo from "@img/logo-blanco.png"
 import "@styles/components/Footer.scss"
 
 const Footer = ({ setShowText }) => {
+
+  const openAbout = () => { setShowText(true) }
+
   return (
     <footer>
       <img src={logo} ></img>
       <nav>
         <ul>
-          <li><a href='/#about' onClick={() => { setShowText(true) }} >Sobre SignsCloud</a></li>
+          <li><a href='/#about' onClick={openAbout} >Sobre SignsCloud</a></li>
           <li><a href='/#plazas' >Plazas Disponibles</a></li>
           <li><a href='/#contact' >Contacto</a></li>
         </ul>

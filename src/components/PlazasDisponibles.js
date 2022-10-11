@@ -6,6 +6,7 @@ const PlazasDisponibles = () => {
     <section className="plazas" >
       <a name="plazas" ></a>
       <h2>Plazas Disponibles</h2>
+
       <div className="plazas__cards-container" >
         {plazas.map((p) => {
           return (<article className="plaza-card" key={p.puesto + Math.random()} >
@@ -18,6 +19,7 @@ const PlazasDisponibles = () => {
             <a>Aplicar ya</a>
           </article>)
         })}
+
       </div>
     </section>
   );

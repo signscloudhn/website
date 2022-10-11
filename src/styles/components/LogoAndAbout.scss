@@ -1,22 +1,21 @@
 @import "../global/vars";
+
 .logo-n-about {
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: auto;
+  padding-bottom: 40px;
   background: url("@img/nubes.png");
   background-position: center;
   background-size: cover;
-  padding-bottom: 40px;
-  // animation: increase 3s linear infinite;
   &__filter {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    background: linear-gradient(180deg, $white 70%, rgba(0, 212, 255, 0) 100%);
     padding-bottom: 30px;
-
+    background: linear-gradient(180deg, $white 70%, rgba(0, 212, 255, 0) 100%);
     img {
       width: 100%;
       max-width: 800px;
@@ -28,22 +27,14 @@
     margin: 0 auto;
     margin-bottom: 20px;
     p {
-      font-size: 1.6rem;
-      color: $background-gray;
       padding: 10px;
+      font-size: 1.6rem;
+      color: $dark-gray;
     }
   }
   &__btn {
     width: 100%;
     display: flex;
     justify-content: center;
-  }
-}
-@keyframes increase {
-  0% {
-    height: 300;
-  }
-  100% {
-    height: 600px;
   }
 }
