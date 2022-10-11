@@ -7,7 +7,7 @@
 @import "vars";
 
 body {
-  background-color: $primary-blue;
+  background-color: $white;
 }
 * {
   margin: 0;
@@ -51,7 +51,8 @@ html {
 
 p,
 li,
-input {
+input,
+label {
   font-size: 1.6rem;
   color: $background-gray;
   font-family: "Montserrat-rg", sans-serif;
