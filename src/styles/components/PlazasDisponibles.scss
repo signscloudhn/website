@@ -1,0 +1,53 @@
+@import "../global/vars";
+
+.plazas {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0px 20px 0;
+  h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  &__cards-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .plaza-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+    width: 300px;
+    background-color: $buttons-blue;
+    padding: 10px;
+    border-radius: 8px;
+    p {
+      font-size: 1.4rem;
+    }
+    h4 {
+      font-size: 1.8rem;
+      color: $background-gray;
+    }
+    p {
+      margin-top: 10px;
+    }
+    a {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-family: "Montserrat-bd", sans-serif;
+      font-size: 1.6rem;
+      text-align: center;
+      color: $primary-blue;
+      background-color: $white;
+      border-radius: 8px;
+      cursor: pointer;
+      &:hover {
+        background-color: $primary-blue;
+        color: $white;
+      }
+    }
+  }
+}

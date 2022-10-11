@@ -1,0 +1,85 @@
+//* Orden de estilos
+// 1. Posicionamiento y Display (position, display, z-index)
+// 2. Dimensiones (width, height, etc)
+// 3. Fuentes (Cualquier configuración de texto)
+// 4. Visuales (Background, animaciones, overflow, filtros, etc)
+
+@import "vars";
+
+body {
+  background-color: $primary-blue;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+  font-size: 62.5%;
+}
+#root {
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+@font-face {
+  font-family: "Torus Bold";
+  src: url(@fonts/TORUSPRO-BOLD.OTF);
+}
+@font-face {
+  font-family: "Torus Regular";
+  src: url(@fonts/TORUSPRO-REGULAR.OTF);
+}
+@font-face {
+  font-family: "Montserrat-rg";
+  src: url(@fonts/MONTSERRAT-REGULAR.TTF);
+}
+@font-face {
+  font-family: "Montserrat-bd";
+  src: url(@fonts/MONTSERRAT-BOLD.TTF);
+}
+@font-face {
+  font-family: "Montserrat-lg";
+  src: url(@fonts/MONTSERRAT-LIGHT.TTF);
+}
+@font-face {
+  font-family: "Montserrat-it";
+  src: url(@fonts/MONTSERRAT-ITALIC.TTF);
+}
+
+p,
+li,
+input {
+  font-size: 1.6rem;
+  color: $background-gray;
+  font-family: "Montserrat-rg", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Torus Bold", sans-serif;
+  color: $background-gray;
+  font-size: 24px;
+}
+
+button {
+  font-family: "Montserrat-bd", sans-serif;
+  font-size: 1.6rem;
+  color: $primary-blue;
+  background-color: $white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  &:hover {
+    background-color: $primary-blue;
+    color: $white;
+  }
+}

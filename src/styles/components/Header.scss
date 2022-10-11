@@ -1,0 +1,57 @@
+@import "../global/vars";
+header {
+  width: 100%;
+  height: 60px;
+  background-color: $white;
+  .header-content {
+    // max-width: 1000px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    img {
+      margin-left: 20px;
+      height: 45px;
+    }
+
+    nav {
+      ul {
+        li {
+          font-size: 20px;
+          margin: 10px;
+          display: inline;
+          color: $background-gray;
+          cursor: pointer;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    .social {
+      width: 100px;
+      margin-right: 20px;
+      display: flex;
+      svg {
+        margin: 10px;
+        height: 35px;
+      }
+    }
+  }
+}
+
+@media (max-width: 870px) {
+  header {
+    justify-content: center;
+    nav {
+      ul {
+        li {
+          display: none;
+        }
+      }
+    }
+    .social {
+      display: none;
+    }
+  }
+}
