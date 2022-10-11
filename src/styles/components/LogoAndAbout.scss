@@ -14,11 +14,12 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    background: linear-gradient(180deg, $white 53%, rgba(0, 212, 255, 0) 100%);
+    background: linear-gradient(180deg, $white 70%, rgba(0, 212, 255, 0) 100%);
     padding-bottom: 30px;
 
     img {
-      width: 800px;
+      width: 100%;
+      max-width: 800px;
       margin: 0 auto;
     }
   }
@@ -29,6 +30,7 @@
     p {
       font-size: 1.6rem;
       color: $background-gray;
+      padding: 10px;
     }
   }
   &__btn {

@@ -46,8 +46,7 @@
       border-radius: 8px;
       cursor: pointer;
       &:hover {
-        background-color: $primary-blue;
-        color: $white;
+        transform: scale(1.01);
       }
     }
   }
