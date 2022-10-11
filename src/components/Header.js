@@ -1,8 +1,8 @@
-import isotipo from '../../recursos/isotipo.png'
+import isotipo from '@img/isotipo.png'
 import "@styles/components/Header.scss"
-import { Link } from 'react-router-dom';
 
 const Header = ({ setShowText }) => {
+
   return (
     <header>
       <div className='header-content' >
