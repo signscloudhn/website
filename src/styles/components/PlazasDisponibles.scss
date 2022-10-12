@@ -27,12 +27,30 @@
     p {
       font-size: 1.4rem;
     }
+    svg {
+      margin-left: 2px;
+      width: 14px;
+    }
+    .categoria {
+      width: fit-content;
+      padding: 3px;
+      font-family: "Torus Regular", sans-serif;
+      color: white;
+      border-radius: 8px;
+      box-shadow: 3px 3px 5px $purple;
+    }
     h4 {
       font-size: 1.8rem;
       color: $dark-gray;
     }
     p {
       margin-top: 10px;
+    }
+    .tecnologias {
+      p {
+        margin-left: 10px;
+        font-family: "Montserrat-lg", sans-serif;
+      }
     }
     a {
       width: 100%;
@@ -41,6 +59,7 @@
       font-family: "Montserrat-bd", sans-serif;
       font-size: 1.6rem;
       text-align: center;
+      text-decoration: none;
       color: $white;
       background-color: $primary-blue;
       border-radius: 8px;
