@@ -37,6 +37,38 @@
       height: 100px;
       outline: dotted 3px $ligth-gray;
       border-radius: 8px;
+
+      input[type="file"] {
+        width: 225px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .custom-file-input::-webkit-file-upload-button {
+        visibility: hidden;
+        position: absolute;
+      }
+      .custom-file-input::before {
+        width: fit-content;
+        margin: 0 auto;
+        content: "Seleccionar archivo";
+        display: inline-block;
+        background: linear-gradient(top, #f9f9f9, #e3e3e3);
+        padding: 5px 8px;
+        outline: none;
+        white-space: nowrap;
+        -webkit-user-select: none;
+        cursor: pointer;
+        // text-shadow: 1px 1px #fff;
+        font-weight: 700;
+        text-align: center;
+      }
+      .custom-file-input:hover::before {
+        border-color: black;
+      }
     }
     .msg {
       height: 100px;
