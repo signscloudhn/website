@@ -40,6 +40,11 @@
     }
     .msg {
       height: 100px;
+      padding: 3px 5px 3px 5px;
+      background-color: $ligth-gray;
+      color: $dark-gray;
+      border: none;
+      border-radius: 8px;
     }
     button {
       margin: 10px 0 0 0;
