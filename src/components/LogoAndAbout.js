@@ -1,5 +1,6 @@
 import logo from "@img/logo-signscloud.png"
 import "@styles/components/LogoAndAbout.scss"
+import LogoSVG from "./common/LogoSVG"
 
 const LogoAndAbout = ({ showText, setShowText }) => {
 
@@ -10,7 +11,7 @@ const LogoAndAbout = ({ showText, setShowText }) => {
   return (
     <section className="logo-n-about">
       <div className="logo-n-about__filter">
-        <img src={logo}></img>
+        <LogoSVG />
         <a name="about"></a>
         {showText && (
           <div className="logo-n-about__text">

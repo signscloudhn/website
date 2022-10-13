@@ -33,7 +33,9 @@ const PlazasDisponibles = () => {
                 <p>- Tecnologias que utilizamos:</p>
                 <div className="tecnologias">
                   {p.tecnologias.map((t) => (
-                    <p>- {t}</p>
+                    <p
+                      key={t + Math.random()}
+                    >- {t}</p>
                   ))}
                 </div>
                 <p>
