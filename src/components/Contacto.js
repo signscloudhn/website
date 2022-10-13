@@ -2,8 +2,21 @@ import { Formik, Form, Field, ErrorMessage } from "formik"
 import * as yup from "yup"
 
 import "@styles/components/Contacto.scss"
+import { useState } from "react"
 
 const Contacto = () => {
+
+  const [valores, setValores] = useState({
+    nombre: "",
+    email: "",
+    telefono: "",
+    puesto: "",
+    enlace: "",
+    cv: undefined,
+    msg: "",
+  })
+
+
   const requerido = "Campo requerido"
 
   return (
@@ -18,10 +31,12 @@ const Contacto = () => {
           telefono: "",
           puesto: "",
           enlace: "",
+          cv: '',
           msg: "",
         }}
         onSubmit={(values) => {
           console.log(values)
+          // setValores(values)
         }}
         validationSchema={yup.object({
           nombre: yup
@@ -58,23 +73,28 @@ const Contacto = () => {
             <Field name="puesto" type="text" />
             <ErrorMessage name="puesto" component="p" style={{ color: "red" }} />
 
-            {/* <label htmlFor="cv">CV (PDF o Word):</label>
-        <div className="form__file-reader" >
-          <p>Arrastre el archivo o</p>
-          <input name="cv" type="file" ></input>
-        </div> */}
+            <label htmlFor="cv">CV (PDF o Word):</label>
+            <div className="form__file-reader" >
+              <p>Arrastre el archivo o</p>
+              <input name="cv" onChange={formik.handleChange} value={formik.initialValues.cv} type="file" ></input>
+              {/* <Field name="cv" type="file" /> */}
+            </div>
 
             <label htmlFor="enlace">Enlace al portafolio o Repositorio:</label>
             <Field name="enlace" type="text" />
             <ErrorMessage name="enlace" component="p" style={{ color: "red" }} />
 
             <label htmlFor="msg">Comentario:</label>
-            <Field name="msg" component="textarea" className="msg" />
+            <Field
+              name="msg" component="textarea" className="msg" />
 
             <button type="submit" >Enviar</button>
           </Form>
         )}
       </Formik>
+
+      <img src={valores.cv} ></img>
+
     </section>
   )
 }
