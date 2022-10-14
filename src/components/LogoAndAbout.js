@@ -1,9 +1,8 @@
-import logo from "@img/logo-signscloud.png"
+import { Link } from "react-scroll"
 import "@styles/components/LogoAndAbout.scss"
 import LogoSVG from "./common/LogoSVG"
 
 const LogoAndAbout = ({ showText, setShowText }) => {
-
   const handleText = () => {
     setShowText(!showText)
   }
@@ -42,16 +41,20 @@ const LogoAndAbout = ({ showText, setShowText }) => {
               cantidad de creatividad natural y desarrollarlas a su máximo
               nivel.
             </p>
-
-          )}</div>
+          )}
+        </div>
       </div>
-
       <div className="logo-n-about__btn">
-        <a href={showText ? "/#about" : "#"}>
+        <Link
+          to={!showText ? "about" : "header"}
+          spy={true}
+          smooth={true}
+          duration={500}
+        >
           <button onClick={handleText}>
             {!showText ? "Sobre Nosotros" : "Cerrar"}
           </button>
-        </a>
+        </Link>
       </div>
     </section>
   )

@@ -36,7 +36,7 @@ const Header = ({ setShowText }) => {
 
   return (
     <header>
-      <div
+      <div id="header"
         className={`header-content ${!open ? "header-content-hided" : "header-content-vertical"
           }`}
       >
