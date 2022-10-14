@@ -1,3 +1,4 @@
+import { Link } from "react-scroll"
 import { plazas } from "../data/plazas"
 import Location from "./common/Location"
 import "@styles/components/PlazasDisponibles.scss"
@@ -41,7 +42,9 @@ const PlazasDisponibles = () => {
                   <Location /> {p.lugar}
                 </p>
               </div>
-              <a href="/#contact">Aplicar</a>
+              <Link to="contact" spy={true} smooth={true} duration={500}>
+                Aplicar
+              </Link>
             </article>
           )
         })}
