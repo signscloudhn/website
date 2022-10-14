@@ -75,7 +75,7 @@ header {
       width: 100%;
       position: fixed;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       height: 100vh;
       background-color: rgba(0, 0, 0, 0.644);
       nav {
@@ -86,12 +86,15 @@ header {
           li {
             display: block;
             text-align: center;
+            margin: 40px;
           }
         }
       }
       .burger-btn {
-        position: static;
+        // position: static;
+        top: 10px;
         margin-bottom: 10px;
+        opacity: 1;
       }
       img {
         margin-top: 10px;

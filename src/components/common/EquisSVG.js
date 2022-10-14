@@ -10,7 +10,7 @@ const EquisSVG = () => {
       viewBox="0 0 460.775 460.775"
       width="40"
       height="40"
-      style={{ enableBackground: "new 0 0 460.775 460.775", fill: "#364954" }}
+      style={{ enableBackground: "new 0 0 460.775 460.775", fill: "#dae2e7" }}
       xmlSpace="preserve"
     >
       <path

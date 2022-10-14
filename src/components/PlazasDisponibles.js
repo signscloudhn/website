@@ -19,12 +19,12 @@ const PlazasDisponibles = () => {
                   style={
                     p.categoria === "Programacion"
                       ? {
-                        backgroundColor: "#33cfff",
-                        boxShadow: "2px 1px 5px #d353df",
+                        backgroundColor: "#73E695",
+                        boxShadow: "2px 1px 5px #A1A6E6",
                       }
                       : {
-                        backgroundColor: "#d353df",
-                        boxShadow: "2px 1px 5px #33cfff",
+                        backgroundColor: "#A1A6E6",
+                        boxShadow: "2px 1px 5px #73E695",
                       }
                   }
                 >
