@@ -12,6 +12,7 @@
   &__filter {
     display: flex;
     flex-direction: column;
+    height: auto;
     justify-content: center;
     width: 100%;
     padding-bottom: 30px;
@@ -24,17 +25,31 @@
   }
   &__text {
     max-width: 800px;
+    height: max-content;
     margin: 0 auto;
     margin-bottom: 20px;
     p {
       padding: 10px;
+      overflow: hidden;
       font-size: 1.6rem;
       color: $dark-gray;
+      animation: fade 0.5s linear;
     }
   }
   &__btn {
     width: 100%;
     display: flex;
     justify-content: center;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 0;
+    // height: 0%;
+  }
+  100% {
+    opacity: 1;
+    // height: 100%;
   }
 }
