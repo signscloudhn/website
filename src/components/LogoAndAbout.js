@@ -12,9 +12,8 @@ const LogoAndAbout = ({ showText, setShowText }) => {
     <section className="logo-n-about">
       <div className="logo-n-about__filter">
         <LogoSVG />
-        <a name="about"></a>
-        {showText && (
-          <div className="logo-n-about__text">
+        <div className="logo-n-about__text" id="about">
+          {showText && (
             <p>
               Somos una empresa de soluciones para producciones digitales.
               Nuestra historia comienza con 2 soñadores que se convierten en
@@ -43,8 +42,8 @@ const LogoAndAbout = ({ showText, setShowText }) => {
               cantidad de creatividad natural y desarrollarlas a su máximo
               nivel.
             </p>
-          </div>
-        )}
+
+          )}</div>
       </div>
 
       <div className="logo-n-about__btn">

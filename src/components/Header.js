@@ -1,5 +1,6 @@
 import { useMobile } from "../hooks/useMobile"
 import { useState } from "react"
+import { Link } from "react-scroll"
 import isotipo from "@img/isotipo.png"
 import InstagramLogo from "./common/InstagramLogo"
 import TwitterLogo from "./common/TwitterLogo"
@@ -39,42 +40,54 @@ const Header = ({ setShowText }) => {
         className={`header-content ${!open ? "header-content-hided" : "header-content-vertical"
           }`}
       >
-        <a
-          href="/#about"
+        <Link
+          to="about"
+          spy={true}
+          smooth={true}
+          duration={500}
+          // delay={500}
           onClick={() => {
             setShowText(true)
             setOpen(false)
           }}
         >
-          <img src={isotipo} alt="SignsCloud logo" />
-        </a>
+          <img
+
+            src={isotipo}
+            alt="SignsCloud logo"
+          />
+        </Link>
+
         <nav>
           <ul>
             <li>
-              <a
-                href="/#about"
-                onClick={openAbout}
-              >
+              <Link to="about"
+                spy={true}
+                smooth={true}
+                duration={500} onClick={openAbout}>
                 Sobre SignsCloud
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/#plazas"
-                onClick={openToFalse}
-              >
+              <Link to="plazas"
+                spy={true}
+                smooth={true}
+                duration={500} onClick={openToFalse}>
                 Plazas Disponibles
-              </a>
+              </Link>
             </li>
             <li>
-              <a
-                href="/#contact"
+              <Link
+                to="contact"
+                spy={true}
+                smooth={true}
+                duration={500}
                 onClick={() => {
                   setOpen(false)
                 }}
               >
                 Contacto
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -90,11 +103,7 @@ const Header = ({ setShowText }) => {
         )}
         {isMobile && (
           <div className="burger-btn" onClick={toggleOpen}>
-            {!open ? (
-              <MenuSVG scroll={scroll} />
-            ) : (
-              <EquisSVG />
-            )}
+            {!open ? <MenuSVG scroll={scroll} /> : <EquisSVG />}
           </div>
         )}
       </div>

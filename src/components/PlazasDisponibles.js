@@ -4,8 +4,7 @@ import "@styles/components/PlazasDisponibles.scss"
 
 const PlazasDisponibles = () => {
   return (
-    <section className="plazas">
-      <a name="plazas"></a>
+    <section className="plazas" id="plazas">
       <h2>Plazas Disponibles</h2>
 
       <div className="plazas__cards-container">
