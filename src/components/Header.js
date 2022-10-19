@@ -96,7 +96,7 @@ const Header = ({ setShowText }) => {
             <a href="https://www.instagram.com/signscloudhn">
               <InstagramLogo fill="#364954" />
             </a>
-            <a>
+            <a href="https://www.twitter.com/signscloudhn">
               <TwitterLogo fill="#364954" />
             </a>
           </div>

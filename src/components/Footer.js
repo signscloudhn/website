@@ -38,7 +38,7 @@ const Footer = ({ setShowText }) => {
         <a href="https://www.instagram.com/signscloudhn">
           <InstagramLogo fill="#dae2e7" />
         </a>
-        <a href="https://www.instagram.com/signscloudhn">
+        <a href="https://www.twitter.com/signscloudhn">
           <TwitterLogo fill="#dae2e7" />
         </a>
       </div>
