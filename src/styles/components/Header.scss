@@ -33,20 +33,18 @@ header {
       }
     }
     .social {
-      width: 100px;
       display: flex;
       margin-right: 20px;
-
       a {
         width: 35px;
         margin: 10px;
-      }
-      svg {
-        width: 35px;
-        height: 35px;
-        cursor: pointer;
-        &:hover {
-          transform: scale(1.1);
+        svg {
+          width: 35px;
+          height: 35px;
+          cursor: pointer;
+          &:hover {
+            transform: scale(1.1);
+          }
         }
       }
     }

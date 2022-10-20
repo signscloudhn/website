@@ -3,6 +3,7 @@ import logo from "@img/logo-blanco.png"
 import "@styles/components/Footer.scss"
 import InstagramLogo from "./common/InstagramLogo"
 import TwitterLogo from "./common/TwitterLogo"
+import LinekInSGV from "./common/LinekInSGV"
 
 const Footer = ({ setShowText }) => {
   const openAbout = () => {
@@ -37,6 +38,9 @@ const Footer = ({ setShowText }) => {
       <div className="social">
         <a href="https://www.instagram.com/signscloudhn">
           <InstagramLogo fill="#dae2e7" />
+        </a>
+        <a href="https://www.linkedin.com/company/signscloud-hn/">
+          <LinekInSGV fill="#dae2e7" fill2="#364954" />
         </a>
         <a href="https://www.twitter.com/signscloudhn">
           <TwitterLogo fill="#dae2e7" />

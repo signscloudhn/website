@@ -7,6 +7,7 @@ import TwitterLogo from "./common/TwitterLogo"
 import MenuSVG from "./common/MenuSVG"
 import EquisSVG from "./common/EquisSVG"
 import "@styles/components/Header.scss"
+import LinekInSGV from "./common/LinekInSGV"
 
 const Header = ({ setShowText }) => {
   // Estado para Abrir y cerrar menu
@@ -95,6 +96,9 @@ const Header = ({ setShowText }) => {
           <div className="social">
             <a href="https://www.instagram.com/signscloudhn">
               <InstagramLogo fill="#364954" />
+            </a>
+            <a href="https://www.linkedin.com/company/signscloud-hn/">
+              <LinekInSGV fill="#364954" fill2="#dae2e7" />
             </a>
             <a href="https://www.twitter.com/signscloudhn">
               <TwitterLogo fill="#364954" />
