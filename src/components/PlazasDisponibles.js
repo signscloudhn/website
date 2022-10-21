@@ -6,13 +6,18 @@ import { gsap } from "gsap"
 import { useEffect, useRef } from "react"
 
 const PlazasDisponibles = () => {
-  const cardsContainer = useRef()
+  const cardsContainer = useRef(null)
 
   const observer = new IntersectionObserver(
     (e) => {
       e.forEach((entry) => {
         if (entry.isIntersecting) {
-          gsap.to(entry.target, { translateX: 0, opacity: 1, delay: 0.5, ease: "back.out(1.7)" })
+          gsap.to(entry.target, {
+            translateX: 0,
+            opacity: 1,
+            delay: 0.5,
+            ease: "back.out(1.7)",
+          })
           observer.unobserve(entry.target)
         }
       })
@@ -30,16 +35,16 @@ const PlazasDisponibles = () => {
       const element = childrens[index]
       observer.observe(element)
     }
+
   }, [])
 
   return (
     <section className="plazas" id="plazas">
       <h2>Plazas Disponibles</h2>
-
       <div className="plazas__cards-container" ref={cardsContainer}>
         {plazas.map((p) => {
           return (
-            <article className="plaza-card" key={p.puesto + Math.random()}>
+            <article className="plaza-card" key={p.puesto}>
               <div>
                 <h4>{p.puesto}</h4>
                 <p

@@ -16,7 +16,6 @@ const LogoAndAbout = ({ showText, setShowText }) => {
     let ctx = gsap.context(() => {
       gsap.to(".logo", { translateY: 0, delay: 0.5, ease: "back.out(1.7)" })
     }, container)
-    // console.log(container.current.children[0].classList)
     return () => ctx.revert()
   }, [])
 
