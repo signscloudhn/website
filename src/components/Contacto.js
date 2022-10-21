@@ -1,7 +1,5 @@
 import Formulario from "./Formulario"
 import "@styles/components/Contacto.scss"
-import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
 
 const Contacto = () => {
   const elementRef = useRef()
@@ -23,9 +21,10 @@ const Contacto = () => {
   }, [])
 
   return (
-    <section className="contacto" id="contact" ref={elementRef}>
+    <section className="contacto" id="contact" >
       <a name="contact"></a>
       <h2>Contacto</h2>
+
       <Formulario />
     </section>
   )

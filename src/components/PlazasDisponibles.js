@@ -2,8 +2,6 @@ import { Link } from "react-scroll"
 import { plazas } from "../data/plazas"
 import Location from "./common/Location"
 import "@styles/components/PlazasDisponibles.scss"
-import { gsap } from "gsap"
-import { useEffect, useRef } from "react"
 
 const PlazasDisponibles = () => {
   const cardsContainer = useRef(null)
@@ -66,7 +64,9 @@ const PlazasDisponibles = () => {
                 <p>- Tecnologias que utilizamos:</p>
                 <div className="tecnologias">
                   {p.tecnologias.map((t) => (
-                    <p key={t + Math.random()}>- {t}</p>
+                    <p
+                      key={t + Math.random()}
+                    >- {t}</p>
                   ))}
                 </div>
                 <p>
