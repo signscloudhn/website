@@ -7,6 +7,15 @@ const LogoAndAbout = ({ showText, setShowText }) => {
     setShowText(!showText)
   }
 
+  const container = useRef()
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.to(".logo", { translateY: 0, delay: 0.5, ease: "back.out(1.7)" })
+    }, container)
+    return () => ctx.revert()
+  }, [])
+
   return (
     <section className="logo-n-about">
       <div className="logo-n-about__filter">
