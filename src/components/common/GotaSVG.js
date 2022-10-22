@@ -14,7 +14,7 @@ const GotaSVG = ({ classe, style }) => {
       </metadata>
       <g
         transform="translate(0.000000,1280.000000) scale(0.100000,-0.100000)"
-        fill="#004be5d1"
+        fill="#ffffff"
         stroke="none"
       >
         <path

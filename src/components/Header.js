@@ -42,7 +42,7 @@ const Header = ({ setShowText }) => {
       const indexRandom = Math.round(Math.random() * 5)
       gsap.to(element, {
         opacity: 1,
-        translateY: 7,
+        translateY: 14,
         delay: 0.1 * indexRandom,
       })
       gsap.to(element, {
