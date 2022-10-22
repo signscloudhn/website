@@ -9,10 +9,26 @@ header {
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    img {
-      height: 45px;
-      margin-left: 20px;
-      cursor: pointer;
+    a {
+      position: relative;
+      img {
+        position: relative;
+        height: 45px;
+        margin-left: 20px;
+        cursor: pointer;
+        transition: 0.2s;
+        &:hover {
+          filter: drop-shadow(0px 3px 4px #808080);
+        }
+      }
+      .gota {
+        opacity: 0;
+        bottom: 10px;
+        left: 33px;
+        width: 3px;
+        height: 5px;
+        position: absolute;
+      }
     }
     nav {
       ul {
@@ -50,6 +66,7 @@ header {
     }
 
     .burger-btn {
+      z-index: 2;
       position: fixed;
       right: 20px;
     }
