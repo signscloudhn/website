@@ -1,6 +1,8 @@
 import { Link } from "react-scroll"
 import { plazas } from "../data/plazas"
 import Location from "./common/Location"
+import { useEffect, useRef } from "react"
+import { gsap } from "gsap"
 import "@styles/components/PlazasDisponibles.scss"
 
 const PlazasDisponibles = () => {

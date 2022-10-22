@@ -1,6 +1,8 @@
 import { Link } from "react-scroll"
 import "@styles/components/LogoAndAbout.scss"
 import LogoSVG from "./common/LogoSVG"
+import { useEffect, useRef } from "react"
+import { gsap } from "gsap"
 
 const LogoAndAbout = ({ showText, setShowText }) => {
   const handleText = () => {
@@ -18,8 +20,10 @@ const LogoAndAbout = ({ showText, setShowText }) => {
 
   return (
     <section className="logo-n-about">
-      <div className="logo-n-about__filter">
-        <LogoSVG />
+      <div className="logo-n-about__filter" ref={container} >
+        <div className="logo">
+          <LogoSVG />
+        </div>
         <div className="logo-n-about__text" id="about">
           {showText && (
             <p>
