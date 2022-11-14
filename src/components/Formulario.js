@@ -41,13 +41,12 @@ const Formulario = () => {
   const sendForm = (data) => {
     axios({
       method: 'post',
-      url: process.env.URL,
+      url: process.env.URL_API,
       data: data,
       headers: {
         "Content-Type": "multipart/form-data",
       },
     }).then((res) => {
-      console.log(res);
       setSend(true)
       setTimeout(() => {
         setSend(false)
@@ -75,7 +74,6 @@ const Formulario = () => {
         sendForm(formData)
         resetForm()
         setDisabled(true)
-        console.log(values)
 
       }}
       validationSchema={yup.object(validationsForm)}
