@@ -3,20 +3,20 @@ import * as yup from "yup"
 const requerido = "Campo requerido"
 
 export const validationsForm = {
-  nombre: yup
+  name: yup
     .string()
     .min(10, "Debe tener 10 caracteres o mas")
     .required(requerido),
   email: yup.string().email("Correo invalido").required(requerido),
-  telefono: yup
+  phone: yup
     .string()
     .matches(
       /^(\+504\s?\-?){0,1}(\d{2,2}\s?\-?){3,3}\d\d$/,
       "Telefono invalido"
     )
     .required(requerido),
-  puesto: yup.string().required(requerido),
-  enlace: yup.string().required(requerido),
+  vacant: yup.string().required(requerido),
+  link: yup.string().required(requerido),
   cv: yup
     .mixed()
     .required("El CV es obligatorio")
@@ -26,11 +26,11 @@ export const validationsForm = {
 }
 
 export const initialForm = {
-  nombre: "",
+  name: "",
   email: "",
-  telefono: "",
-  puesto: "",
-  enlace: "",
+  phone: "",
+  vacant: "",
+  link: "",
   cv: "",
-  msg: "",
+  comment: "",
 }

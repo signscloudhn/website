@@ -2,9 +2,13 @@ import { Formik, Form, Field, ErrorMessage } from "formik"
 import { validationsForm, initialForm } from "../data/form"
 import * as yup from "yup"
 import { useState } from "react"
+import axios from "axios"
 
 const Formulario = () => {
   const [style, setStyle] = useState({})
+
+  const [send, setSend] = useState(false)
+  const [disabled, setDisabled] = useState(false)
 
   const dragOver = (e) => {
     e.preventDefault()
@@ -22,10 +26,10 @@ const Formulario = () => {
   const drop = (e, f) => {
     e.preventDefault()
     const cargarArchivo = (ar) => {
-      const reader = new FileReader()
-      reader.onload = (e) => {
-        reader.readAsDataURL(ar)
-      }
+      // const reader = new FileReader()
+      // reader.onload = (e) => {
+      //   // reader.readAsDataURL(ar)
+      // }
       f.setFieldValue("cv", e.dataTransfer.files[0])
     }
     cargarArchivo(e.dataTransfer.files[0])
@@ -34,35 +38,69 @@ const Formulario = () => {
     })
   }
 
+  const sendForm = (data) => {
+    axios({
+      method: 'post',
+      url: process.env.URL,
+      data: data,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }).then((res) => {
+      console.log(res);
+      setSend(true)
+      setTimeout(() => {
+        setSend(false)
+        setDisabled(false)
+      }, 3000)
+    })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  const formData = new FormData()
+
   return (
     <Formik
       initialValues={initialForm}
-      onSubmit={(values) => {
+      onSubmit={(values, { resetForm }) => {
+        formData.append('cv', values.cv)
+        formData.append('name', values.name)
+        formData.append('email', values.email)
+        formData.append('phone', values.phone)
+        formData.append('vacant', values.vacant)
+        formData.append('comment', values.comment)
+        formData.append('link', values.link)
+        sendForm(formData)
+        resetForm()
+        setDisabled(true)
         console.log(values)
+
       }}
       validationSchema={yup.object(validationsForm)}
     >
       {(formik) => (
         <Form>
-          <label htmlFor="nombre">Nombre completo:</label>
-          <Field name="nombre" type="text" />
-          <ErrorMessage name="nombre" component="p" style={{ color: "red" }} />
+          <label htmlFor="name">Nombre completo:</label>
+          <Field name="name" type="text" />
+          <ErrorMessage name="name" component="p" style={{ color: "red" }} />
 
           <label htmlFor="email">Email:</label>
           <Field name="email" type="email" />
           <ErrorMessage name="email" component="p" style={{ color: "red" }} />
 
-          <label htmlFor="telefono">Telefono:</label>
-          <Field name="telefono" type="text" />
+          <label htmlFor="phone">Telefono:</label>
+          <Field name="phone" type="text" />
           <ErrorMessage
-            name="telefono"
+            name="phone"
             component="p"
             style={{ color: "red" }}
           />
 
-          <label htmlFor="puesto">Puesto al que aplica:</label>
-          <Field name="puesto" type="text" />
-          <ErrorMessage name="puesto" component="p" style={{ color: "red" }} />
+          <label htmlFor="vacant">Puesto al que aplica:</label>
+          <Field name="vacant" type="text" />
+          <ErrorMessage name="vacant" component="p" style={{ color: "red" }} />
 
           <label htmlFor="cv">CV (PDF o Word):</label>
           <div
@@ -88,14 +126,14 @@ const Formulario = () => {
           </div>
           <ErrorMessage name="cv" component="p" style={{ color: "red" }} />
 
-          <label htmlFor="enlace">Enlace al portafolio o Repositorio:</label>
-          <Field name="enlace" type="text" />
-          <ErrorMessage name="enlace" component="p" style={{ color: "red" }} />
+          <label htmlFor="link">Enlace al portafolio o Repositorio:</label>
+          <Field name="link" type="text" />
+          <ErrorMessage name="link" component="p" style={{ color: "red" }} />
 
-          <label htmlFor="msg">Comentario:</label>
-          <Field name="msg" component="textarea" className="msg" />
+          <label htmlFor="comment">Comentario:</label>
+          <Field name="comment" component="textarea" className="msg" />
 
-          <button type="submit">Enviar</button>
+          <button disabled={disabled ? true : false} type="submit" style={send ? { color: "green" } : undefined} > {send ? 'Enviado' : 'Enviar'} </button>
         </Form>
       )}
     </Formik>
