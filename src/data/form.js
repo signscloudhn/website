@@ -20,8 +20,8 @@ export const validationsForm = {
   cv: yup
     .mixed()
     .required("El CV es obligatorio")
-    .test("fileFormat", "Debe ser un archivo .pdf o .docx", (value) => {
-      return value?.type === "application/pdf" || value?.type === "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    .test("fileFormat", "Debe ser un archivo .pdf", (value) => {
+      return value?.type === "application/pdf"
     }),
 }
 

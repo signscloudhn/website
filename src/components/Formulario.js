@@ -1,14 +1,54 @@
 import { Formik, Form, Field, ErrorMessage } from "formik"
 import { validationsForm, initialForm } from "../data/form"
 import * as yup from "yup"
+import Spin from "./common/Spin"
 import { useState } from "react"
-import axios from "axios"
+import axios, { AxiosError } from "axios"
 
 const Formulario = () => {
   const [style, setStyle] = useState({})
-
   const [send, setSend] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
+
+  const buttonTxt = () => {
+    if (send) {
+      return 'Enviado'
+    } else if (loading) {
+      return 'Enviando'
+    } else {
+      return 'Enviar'
+    }
+  }
+
+
+  const sendForm = (data) => {
+    axios({
+      method: 'post',
+      url: process.env.URL_API,
+      data: data,
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    }).then((res) => {
+      setSend(true)
+      setTimeout(() => {
+        setSend(false)
+        setLoading(false)
+        setDisabled(false)
+      }, 3000)
+    }).catch((err) => {
+      setError(true)
+      setDisabled(false)
+      setLoading(false)
+      setTimeout(() => {
+        setError(false)
+      }, 5000)
+    })
+  }
+
+  const formData = new FormData()
 
   const dragOver = (e) => {
     e.preventDefault()
@@ -26,10 +66,6 @@ const Formulario = () => {
   const drop = (e, f) => {
     e.preventDefault()
     const cargarArchivo = (ar) => {
-      // const reader = new FileReader()
-      // reader.onload = (e) => {
-      //   // reader.readAsDataURL(ar)
-      // }
       f.setFieldValue("cv", e.dataTransfer.files[0])
     }
     cargarArchivo(e.dataTransfer.files[0])
@@ -38,27 +74,7 @@ const Formulario = () => {
     })
   }
 
-  const sendForm = (data) => {
-    axios({
-      method: 'post',
-      url: process.env.URL_API,
-      data: data,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    }).then((res) => {
-      setSend(true)
-      setTimeout(() => {
-        setSend(false)
-        setDisabled(false)
-      }, 3000)
-    })
-      .catch((err) => {
-        console.log(err);
-      })
-  }
 
-  const formData = new FormData()
 
   return (
     <Formik
@@ -74,7 +90,7 @@ const Formulario = () => {
         sendForm(formData)
         resetForm()
         setDisabled(true)
-
+        setLoading(true)
       }}
       validationSchema={yup.object(validationsForm)}
     >
@@ -100,7 +116,7 @@ const Formulario = () => {
           <Field name="vacant" type="text" />
           <ErrorMessage name="vacant" component="p" style={{ color: "red" }} />
 
-          <label htmlFor="cv">CV (PDF o Word):</label>
+          <label htmlFor="cv">CV (PDF):</label>
           <div
             className="form__file-reader"
             onDragOver={(e) => {
@@ -118,7 +134,7 @@ const Formulario = () => {
                 formik.setFieldValue("cv", event.currentTarget.files[0])
               }}
               type="file"
-              accept=".pdf,.docx"
+              accept=".pdf"
               className="custom-file-input"
             ></input>
           </div>
@@ -131,7 +147,15 @@ const Formulario = () => {
           <label htmlFor="comment">Comentario:</label>
           <Field name="comment" component="textarea" className="msg" />
 
-          <button disabled={disabled ? true : false} type="submit" style={send ? { color: "green" } : undefined} > {send ? 'Enviado' : 'Enviar'} </button>
+          {
+            loading && <Spin />
+          }
+
+          {
+            error && <p style={{ color: "red", margin: 5 }} >Algo salio mal, procura no enviar un pdf demasiado grande o pesado.</p>
+          }
+
+          <button disabled={disabled ? true : false} type="submit" style={send ? { color: "green" } : undefined} > {buttonTxt()} </button>
         </Form>
       )}
     </Formik>

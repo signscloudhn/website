@@ -26,7 +26,6 @@ const Contacto = () => {
     <section className="contacto" id="contact" ref={elementRef} >
       <a name="contact"></a>
       <h2>Contacto</h2>
-
       <Formulario />
     </section>
   )
