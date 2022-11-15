@@ -3,19 +3,12 @@ import { validationsForm, initialForm } from "../data/form"
 import * as yup from "yup"
 import Spin from "./common/Spin"
 import { useState } from "react"
-import axios, { AxiosError } from "axios"
+import useSendForm from "../hooks/useSendForm"
 
 const Formulario = () => {
+  const { send, disabled, loading, error, submit } = useSendForm()
+
   const [style, setStyle] = useState({})
-
-  const [stateForm, setStateForm] = useState({
-    send: false,
-    disabled: false,
-    loading: false,
-    error: false,
-  })
-
-  const { send, disabled, loading, error } = stateForm
 
   const buttonTxt = () => {
     if (send) {
@@ -25,50 +18,6 @@ const Formulario = () => {
     } else {
       return "Enviar"
     }
-  }
-
-  const formData = new FormData()
-
-  const sendForm = (data, values) => {
-    axios({
-      method: "post",
-      url: process.env.URL_API,
-      data: data,
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    })
-      .then((res) => {
-        setStateForm({
-          ...stateForm,
-          send: true,
-        })
-        Object.entries(values).forEach(([key, value]) => {
-          values[key] = typeof value === "string" ? "" : undefined
-        })
-        setTimeout(() => {
-          setStateForm({
-            ...stateForm,
-            disabled: false,
-            loading: false,
-            send: false,
-          })
-        }, 2000)
-      })
-      .catch((err) => {
-        setStateForm({
-          ...stateForm,
-          disabled: false,
-          loading: false,
-          error: true,
-        })
-        setTimeout(() => {
-          setStateForm({
-            ...stateForm,
-            error: false,
-          })
-        }, 5000)
-      })
   }
 
   const dragOver = (e) => {
@@ -94,19 +43,6 @@ const Formulario = () => {
       outlineColor: "rgba(163, 157, 157, 0.333)",
     })
   }
-
-  const submit = (values) => {
-    Object.entries(values).forEach(([key, value]) => {
-      formData.append(`${key}`, value)
-    })
-    sendForm(formData, values)
-    setStateForm({
-      ...stateForm,
-      disabled: true,
-      loading: true,
-    })
-  }
-
 
   return (
     <Formik
@@ -174,7 +110,7 @@ const Formulario = () => {
 
           {error && (
             <p style={{ color: "red", margin: 5 }}>
-              Algo salio mal, procura no enviar un pdf demasiado grande o
+              Algo salió mal, procura no enviar un pdf demasiado grande o
               pesado.
             </p>
           )}

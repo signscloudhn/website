@@ -6,7 +6,7 @@
   align-items: center;
   height: auto;
   padding-bottom: 40px;
-  background: url("@img/nubes.png");
+  background: url("@img/nube-1920.png");
   background-position: center;
   background-size: cover;
   &__filter {
@@ -26,7 +26,6 @@
   }
   &__text {
     max-width: 800px;
-    // height: 457px;
     margin: 0 auto;
     margin-bottom: 20px;
     p {
@@ -53,5 +52,35 @@
   100% {
     opacity: 1;
     height: 100%;
+  }
+}
+
+@media (max-width: 1300px) {
+  .logo-n-about {
+    background: url("@img/nube-1270.png");
+    background-position: center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 880px) {
+  .logo-n-about {
+    background: url("@img/nube-820.png");
+    background-position: center;
+    background-size: cover;
+  }
+}
+@media (max-width: 580px) {
+  .logo-n-about {
+    background: url("@img/nube-540.png");
+    background-position: center;
+    background-size: cover;
+  }
+}
+@media (max-width: 400px) {
+  .logo-n-about {
+    background: url("@img/nube-393.png");
+    background-position: center;
+    background-size: cover;
   }
 }

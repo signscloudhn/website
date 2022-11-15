@@ -1,7 +1,7 @@
 export const plazas = [
   {
     puesto: "Desarrollador Backend",
-    categoria: "Programacion",
+    categoria: "Programación",
     lugar: "San Pedro Sula, Cortes",
     tecnologias: [
       "Python",
@@ -13,8 +13,8 @@ export const plazas = [
     ],
   },
   {
-    puesto: "Desarrolador Frontend",
-    categoria: "Programacion",
+    puesto: "Desarrollador Frontend",
+    categoria: "Programación",
     lugar: "San Pedro Sula, Cortes",
     tecnologias: [
       "HTML",
@@ -24,18 +24,17 @@ export const plazas = [
       "React JS",
       "Angular",
       "Git",
-      "Formik",
     ],
   },
   {
     puesto: "Graphic Designer Junior",
-    categoria: "Diseño Grafico",
+    categoria: "Diseño gráfico",
     lugar: "San Pedro Sula, Cortes",
     tecnologias: ["InDesign", "Photoshop", "Illustrator"],
   },
   {
     puesto: "Graphic Designer Senior",
-    categoria: "Diseño Grafico",
+    categoria: "Diseño gráfico",
     lugar: "San Pedro Sula, Cortes",
     tecnologias: [
       "Photoshop",
@@ -49,7 +48,7 @@ export const plazas = [
 
   {
     puesto: "Social Media Designer",
-    categoria: "Diseño Grafico",
+    categoria: "Diseño gráfico",
     lugar: "San Pedro Sula, Cortes",
     tecnologias: ["Photoshop", "Illustrator", "After Effects", "Premiere"],
   },

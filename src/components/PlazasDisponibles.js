@@ -50,7 +50,7 @@ const PlazasDisponibles = () => {
                 <p
                   className="categoria"
                   style={
-                    p.categoria === "Programacion"
+                    p.categoria === "Programación"
                       ? {
                         backgroundColor: "#73E695",
                         boxShadow: "2px 1px 5px #A1A6E6",
