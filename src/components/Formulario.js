@@ -7,48 +7,69 @@ import axios, { AxiosError } from "axios"
 
 const Formulario = () => {
   const [style, setStyle] = useState({})
-  const [send, setSend] = useState(false)
-  const [disabled, setDisabled] = useState(false)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(false)
+
+  const [stateForm, setStateForm] = useState({
+    send: false,
+    disabled: false,
+    loading: false,
+    error: false,
+  })
+
+  const { send, disabled, loading, error } = stateForm
 
   const buttonTxt = () => {
     if (send) {
-      return 'Enviado'
+      return "Enviado"
     } else if (loading) {
-      return 'Enviando'
+      return "Enviando"
     } else {
-      return 'Enviar'
+      return "Enviar"
     }
   }
 
+  const formData = new FormData()
 
-  const sendForm = (data) => {
+  const sendForm = (data, values) => {
     axios({
-      method: 'post',
+      method: "post",
       url: process.env.URL_API,
       data: data,
       headers: {
         "Content-Type": "multipart/form-data",
       },
-    }).then((res) => {
-      setSend(true)
-      setTimeout(() => {
-        setSend(false)
-        setLoading(false)
-        setDisabled(false)
-      }, 3000)
-    }).catch((err) => {
-      setError(true)
-      setDisabled(false)
-      setLoading(false)
-      setTimeout(() => {
-        setError(false)
-      }, 5000)
     })
+      .then((res) => {
+        setStateForm({
+          ...stateForm,
+          send: true,
+        })
+        Object.entries(values).forEach(([key, value]) => {
+          values[key] = typeof value === "string" ? "" : undefined
+        })
+        setTimeout(() => {
+          setStateForm({
+            ...stateForm,
+            disabled: false,
+            loading: false,
+            send: false,
+          })
+        }, 2000)
+      })
+      .catch((err) => {
+        setStateForm({
+          ...stateForm,
+          disabled: false,
+          loading: false,
+          error: true,
+        })
+        setTimeout(() => {
+          setStateForm({
+            ...stateForm,
+            error: false,
+          })
+        }, 5000)
+      })
   }
-
-  const formData = new FormData()
 
   const dragOver = (e) => {
     e.preventDefault()
@@ -74,23 +95,24 @@ const Formulario = () => {
     })
   }
 
+  const submit = (values) => {
+    Object.entries(values).forEach(([key, value]) => {
+      formData.append(`${key}`, value)
+    })
+    sendForm(formData, values)
+    setStateForm({
+      ...stateForm,
+      disabled: true,
+      loading: true,
+    })
+  }
 
 
   return (
     <Formik
       initialValues={initialForm}
-      onSubmit={(values, { resetForm }) => {
-        formData.append('cv', values.cv)
-        formData.append('name', values.name)
-        formData.append('email', values.email)
-        formData.append('phone', values.phone)
-        formData.append('vacant', values.vacant)
-        formData.append('comment', values.comment)
-        formData.append('link', values.link)
-        sendForm(formData)
-        resetForm()
-        setDisabled(true)
-        setLoading(true)
+      onSubmit={(values) => {
+        submit(values)
       }}
       validationSchema={yup.object(validationsForm)}
     >
@@ -106,38 +128,39 @@ const Formulario = () => {
 
           <label htmlFor="phone">Telefono:</label>
           <Field name="phone" type="text" />
-          <ErrorMessage
-            name="phone"
-            component="p"
-            style={{ color: "red" }}
-          />
+          <ErrorMessage name="phone" component="p" style={{ color: "red" }} />
 
           <label htmlFor="vacant">Puesto al que aplica:</label>
           <Field name="vacant" type="text" />
           <ErrorMessage name="vacant" component="p" style={{ color: "red" }} />
 
-          <label htmlFor="cv">CV (PDF):</label>
-          <div
-            className="form__file-reader"
-            onDragOver={(e) => {
-              dragOver(e)
-            }}
-            onDragLeave={dragLeave}
-            onDrop={(e) => drop(e, formik)}
-            style={style}
-          >
-            <p>Arrastre el archivo o</p>
-            <input
-              name="cv"
-              onChange={(event) => {
-                event.preventDefault()
-                formik.setFieldValue("cv", event.currentTarget.files[0])
-              }}
-              type="file"
-              accept=".pdf"
-              className="custom-file-input"
-            ></input>
-          </div>
+          {!send && !loading && (
+            <>
+              <label htmlFor="cv">CV (PDF):</label>
+              <div
+                className="form__file-reader"
+                onDragOver={(e) => {
+                  dragOver(e)
+                }}
+                onDragLeave={dragLeave}
+                onDrop={(e) => drop(e, formik)}
+                style={style}
+              >
+                <p>Arrastre el archivo o</p>
+                <input
+                  name="cv"
+                  onChange={(event) => {
+                    event.preventDefault()
+                    formik.setFieldValue("cv", event.currentTarget.files[0])
+                  }}
+                  type="file"
+                  accept=".pdf"
+                  className="custom-file-input"
+                ></input>
+              </div>
+            </>
+          )}
+
           <ErrorMessage name="cv" component="p" style={{ color: "red" }} />
 
           <label htmlFor="link">Enlace al portafolio o Repositorio:</label>
@@ -147,15 +170,22 @@ const Formulario = () => {
           <label htmlFor="comment">Comentario:</label>
           <Field name="comment" component="textarea" className="msg" />
 
-          {
-            loading && <Spin />
-          }
+          {loading && <Spin />}
 
-          {
-            error && <p style={{ color: "red", margin: 5 }} >Algo salio mal, procura no enviar un pdf demasiado grande o pesado.</p>
-          }
+          {error && (
+            <p style={{ color: "red", margin: 5 }}>
+              Algo salio mal, procura no enviar un pdf demasiado grande o
+              pesado.
+            </p>
+          )}
 
-          <button disabled={disabled ? true : false} type="submit" style={send ? { color: "green" } : undefined} > {buttonTxt()} </button>
+          <button
+            disabled={disabled ? true : false}
+            type="submit"
+            style={send ? { color: "green" } : undefined}
+          >
+            {buttonTxt()}
+          </button>
         </Form>
       )}
     </Formik>
