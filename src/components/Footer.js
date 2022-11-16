@@ -37,14 +37,14 @@ const Footer = ({ setShowText }) => {
         </ul>
       </nav>
       <div className="social">
-        <a href="https://www.instagram.com/signscloudhn">
+        <a href="https://www.instagram.com/signscloudhn" target="_blank" >
           <InstagramLogo fill="#dae2e7" />
         </a>
-        <a href="https://www.linkedin.com/company/signscloud-hn/">
+        <a href="https://www.linkedin.com/company/signscloud-hn/" target="_blank" >
           <LinkedInLogo
             fill="#dae2e7" fill2="#364954" />
         </a>
-        <a href="https://www.twitter.com/signscloudhn">
+        <a href="https://www.twitter.com/signscloudhn" target="_blank" >
           <TwitterLogo fill="#dae2e7" />
         </a>
       </div>
