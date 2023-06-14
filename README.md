@@ -13,5 +13,3 @@ npm install
 ```bash
 npm run start
 ```
-
-soy cesar
