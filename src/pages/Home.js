@@ -5,6 +5,7 @@ import Footer from "../components/Footer"
 import Header from "../components/Header"
 import LogoAndAbout from "../components/LogoAndAbout"
 import PlazasDisponibles from "../components/PlazasDisponibles"
+import { InfoAndPictures } from "../components/InfoAndPictures"
 
 const Home = () => {
   const [showText, setShowText] = useState(false)
@@ -12,6 +13,7 @@ const Home = () => {
     <>
       <Header setShowText={setShowText} />
       <LogoAndAbout showText={showText} setShowText={setShowText} />
+      <InfoAndPictures />
       <PlazasDisponibles />
       <Contacto />
       <Footer setShowText={setShowText} />

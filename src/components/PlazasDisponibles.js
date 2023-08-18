@@ -47,7 +47,7 @@ const PlazasDisponibles = () => {
             <article className="plaza-card" key={p.puesto}>
               <div>
                 <h4>{p.puesto}</h4>
-                <p
+                {/* <p
                   className="categoria"
                   style={
                     p.categoria === "Programación"
@@ -62,7 +62,7 @@ const PlazasDisponibles = () => {
                   }
                 >
                   {p.categoria}
-                </p>
+                </p> */}
                 <p>- Tecnologias que utilizamos:</p>
                 <div className="tecnologias">
                   {p.tecnologias.map((t) => (

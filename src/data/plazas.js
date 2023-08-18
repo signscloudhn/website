@@ -6,10 +6,9 @@ export const plazas = [
     tecnologias: [
       "Python",
       "Django Rest Framework",
-      "MySQL, MariaDB o Postgresql",
+      "MySQL o Postgresql",
       "Git",
-      "API REST",
-      "Docker y Docker-compose",
+      "Docker",
     ],
   },
   {
