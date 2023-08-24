@@ -6,17 +6,18 @@ import Header from "../components/Header"
 import LogoAndAbout from "../components/LogoAndAbout"
 import PlazasDisponibles from "../components/PlazasDisponibles"
 import { InfoAndPictures } from "../components/InfoAndPictures"
+import Corporations from "../components/Corporations"
 
 const Home = () => {
-  const [showText, setShowText] = useState(false)
   return (
     <>
-      <Header setShowText={setShowText} />
-      <LogoAndAbout showText={showText} setShowText={setShowText} />
+      <Header />
+      <LogoAndAbout />
       <InfoAndPictures />
+      <Corporations />
       <PlazasDisponibles />
       <Contacto />
-      <Footer setShowText={setShowText} />
+      <Footer />
     </>
   )
 }

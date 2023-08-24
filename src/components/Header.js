@@ -11,7 +11,7 @@ import "@styles/components/Header.scss"
 import LinkedInLogo from "./common/LinkedInLogo"
 import GotaSVG from "./common/GotaSVG"
 
-const Header = ({ setShowText }) => {
+const Header = () => {
   // Estado para Abrir y cerrar menu
   const [open, setOpen] = useState(false)
   // Estado para el scroll Y
@@ -65,7 +65,6 @@ const Header = ({ setShowText }) => {
   }
 
   const openAbout = () => {
-    setShowText(true)
     setOpen(false)
   }
 
@@ -84,7 +83,6 @@ const Header = ({ setShowText }) => {
           delay={800}
           onClick={() => {
             animate()
-            setShowText(true)
             setOpen(false)
           }}
         >
@@ -111,6 +109,17 @@ const Header = ({ setShowText }) => {
                 onClick={openAbout}
               >
                 Sobre SignsCloud
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="corporations"
+                spy={true}
+                smooth={true}
+                duration={500}
+                onClick={openToFalse}
+              >
+                Colaboradores
               </Link>
             </li>
             <li>

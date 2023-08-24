@@ -2,7 +2,7 @@ export const plazas = [
   {
     puesto: "Desarrollador Backend",
     categoria: "Programación",
-    lugar: "San Pedro Sula, Cortes",
+    lugar: "San Pedro Sula, Cortés",
     tecnologias: [
       "Python",
       "Django Rest Framework",
@@ -14,7 +14,7 @@ export const plazas = [
   {
     puesto: "Desarrollador Frontend",
     categoria: "Programación",
-    lugar: "San Pedro Sula, Cortes",
+    lugar: "San Pedro Sula, Cortés",
     tecnologias: [
       "HTML",
       "CSS",
@@ -28,13 +28,13 @@ export const plazas = [
   {
     puesto: "Graphic Designer Junior",
     categoria: "Diseño gráfico",
-    lugar: "San Pedro Sula, Cortes",
+    lugar: "San Pedro Sula, Cortés",
     tecnologias: ["InDesign", "Photoshop", "Illustrator"],
   },
   {
     puesto: "Graphic Designer Senior",
     categoria: "Diseño gráfico",
-    lugar: "San Pedro Sula, Cortes",
+    lugar: "San Pedro Sula, Cortés",
     tecnologias: [
       "Photoshop",
       "Illustrator",
@@ -48,7 +48,7 @@ export const plazas = [
   {
     puesto: "Social Media Designer",
     categoria: "Diseño gráfico",
-    lugar: "San Pedro Sula, Cortes",
+    lugar: "San Pedro Sula, Cortés",
     tecnologias: ["Photoshop", "Illustrator", "After Effects", "Premiere"],
   },
 ]

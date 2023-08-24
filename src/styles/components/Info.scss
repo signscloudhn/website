@@ -6,7 +6,7 @@
   gap: 15px;
   max-width: 1000px;
   margin: 0 auto;
-  padding: 20px 0px 20px 0;
+  padding: 20px 0px 50px 0;
   &__text {
     p {
       padding: 5px;
@@ -24,6 +24,10 @@
     width: 526px;
     height: 447px;
     position: relative;
+    img {
+      opacity: 0;
+      transform: scale(0);
+    }
     :nth-child(1) {
       position: absolute;
       right: 45px;
@@ -44,6 +48,9 @@
     :nth-child(2) {
       bottom: -20px;
       right: 5px;
+      // animation: name duration timing-function delay iteration-count direction
+      //   fill-mode;
+      animation: floating 10s infinite linear;
     }
     :nth-child(1) {
       left: 5px;
@@ -51,6 +58,29 @@
     }
   }
 }
+
+// @keyframes floating {
+//   0% {
+//     transform: scale(0);
+//     opacity: 0;
+//   }
+
+//   10% {
+//     transform: scale(1);
+//     opacity: 1;
+//   }
+//   20% {
+//     transform: translate(-200px, -50px);
+//   }
+
+//   50% {
+//     transform: translate(-300px, -100px);
+//   }
+
+//   70% {
+//     transform: translate(-200px, -100px);
+//   }
+// }
 
 @media screen and (max-width: 940px) {
   .info {

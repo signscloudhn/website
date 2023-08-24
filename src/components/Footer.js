@@ -6,11 +6,7 @@ import TwitterLogo from "./common/TwitterLogo"
 import LinkedInLogo
   from "./common/LinkedInLogo"
 
-const Footer = ({ setShowText }) => {
-  const openAbout = () => {
-    setShowText(true)
-  }
-
+const Footer = () => {
   return (
     <footer>
       <img src={logo}></img>
@@ -20,8 +16,13 @@ const Footer = ({ setShowText }) => {
             <Link to="about"
               spy={true}
               smooth={true}
-              duration={500} onClick={openAbout}>
+              duration={500}>
               Sobre SignsCloud
+            </Link>
+          </li>
+          <li>
+            <Link to="corporations" spy={true} smooth={true} duration={500}>
+              Colaboradores
             </Link>
           </li>
           <li>
