@@ -4,7 +4,6 @@ import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
 
 const LogoAndAbout = () => {
-
   const container = useRef()
 
   useEffect(() => {
@@ -16,7 +15,7 @@ const LogoAndAbout = () => {
 
   return (
     <section className="logo-n-about">
-      <div className="logo-n-about__filter" ref={container} >
+      <div className="logo-n-about__filter" ref={container}>
         <div className="logo">
           <LogoSVG />
         </div>

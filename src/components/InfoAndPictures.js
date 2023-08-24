@@ -4,28 +4,13 @@ import circularss from "@img/circulares_1.png"
 import genericos from "@img/genericos.png"
 import flyers from "@img/flyers.png"
 import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
+import { useAnimate } from "../hooks/useAnimate"
 
 export const InfoAndPictures = () => {
   const imgContainer = useRef(null)
   const imgContainer2 = useRef(null)
 
-  const observer = new IntersectionObserver((e) => {
-    e.forEach((entry) => {
-      if (entry.isIntersecting) {
-        gsap.to(entry.target, {
-          transform: "scale(1)",
-          opacity: 1,
-          delay: 0.5,
-          ease: "back.out(1.7)"
-        })
-        observer.unobserve(entry.target)
-      }
-    })
-  }, {
-    threshold: 0,
-    rootMargin: "50px",
-  })
+  const { observer } = useAnimate()
 
   useEffect(() => {
     const childrens = imgContainer.current?.childNodes

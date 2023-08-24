@@ -3,28 +3,13 @@ import circularss from "@img/circularss.png"
 import hiresprint from "@img/hiresprint.png"
 import sweepstouch from "@img/sweepstouch.png"
 import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
+import { useAnimate } from "../hooks/useAnimate"
 
 const Corporations = () => {
 
-  const brandsContainer = useRef(null)
+  const { observer } = useAnimate()
 
-  const observer = new IntersectionObserver((e) => {
-    e.forEach((entry) => {
-      if (entry.isIntersecting) {
-        gsap.to(entry.target, {
-          translateX: 0,
-          opacity: 1,
-          delay: 0.5,
-          ease: "back.out(1.7)"
-        })
-        observer.unobserve(entry.target)
-      }
-    })
-  }, {
-    threshold: 0,
-    rootMargin: "50px",
-  })
+  const brandsContainer = useRef(null)
 
   useEffect(() => {
     const childrens = brandsContainer.current?.childNodes
